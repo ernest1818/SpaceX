@@ -14,6 +14,10 @@ final class ViewController: UIViewController {
     var segment3 = 0
     var segment4 = 0
     
+    var id = ""
+    var rocketName = ""
+    
+    
     private var rokets = [SpaceRocket]()
     private let url = "https://api.spacexdata.com/v4/rockets"
     
@@ -28,6 +32,13 @@ final class ViewController: UIViewController {
         fetData()
         myPageControl.currentPage = 0
         myPageControl.numberOfPages = 4
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "launch" else { return }
+        guard let launchVC = segue.destination as? LaunchViewController else { return }
+        launchVC.rocketName = rocketName
+        launchVC.id = id
     }
     
     private func fetData(){
@@ -48,6 +59,18 @@ final class ViewController: UIViewController {
         collectionView.reloadData()
     }
     
+    private func configurateDate(string: String, formatter: String) -> String {
+        let dataFormat = DateFormatter()
+        dataFormat.dateFormat = "yyyy-MM-dd"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = formatter
+
+        let date: Date? = dataFormat.date(from: string)
+
+        return dateFormatterPrint.string(from: date!);
+    }
+    
     private func configerateCell(cell: MYCollectionCell, indexPath: IndexPath){
         let rokets = rokets[indexPath.row]
         
@@ -59,27 +82,68 @@ final class ViewController: UIViewController {
             }
         }
         
-        cell.viewInScroll1.layer.cornerRadius = 40
+        cell.viewInScroll1.layer.cornerRadius = 32
         cell.viewInScroll1.layer.masksToBounds = true
-        cell.viewInScroll2.layer.cornerRadius = 40
+        cell.viewInScroll2.layer.cornerRadius = 32
         cell.viewInScroll2.layer.masksToBounds = true
-        cell.viewInScroll3.layer.cornerRadius = 40
+        cell.viewInScroll3.layer.cornerRadius = 32
         cell.viewInScroll3.layer.masksToBounds = true
-        cell.viewInScroll4.layer.cornerRadius = 40
+        cell.viewInScroll4.layer.cornerRadius = 32
         cell.viewInScroll4.layer.masksToBounds = true
+    
         
+        cell.firstFlight.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        cell.country.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        cell.costPerLaunch.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        
+        cell.nameLabel.font = UIFont(name: "LabGrotesque-Medium", size: 24)
         cell.nameLabel.text = rokets.name
-        cell.firstFlightLabel.text = rokets.firstFlight
-        cell.countryLabel.text = rokets.country
+        cell.firstFlightLabel.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        cell.firstFlightLabel.text = configurateDate(string: rokets.firstFlight, formatter: "dd MMMM, yyyy")
+        cell.countryLabel.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        
+        if rokets.country == "Republic of the Marshall Islands" {
+            cell.countryLabel.text = "Республика Маршалловы Острова"
+        } else if rokets.country == "United States" {
+            cell.countryLabel.text = "CША"
+        }
+        
+        cell.costPerLaunchLabel.font = UIFont(name: "LabGrotesque-Regular", size: 16)
         cell.costPerLaunchLabel.text = String("$\(rokets.costPerLaunch / 1000000) ml.")
         //FistStage
+        
+        cell.enginesLabelFirstStage.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        cell.fuelAmountFirstStage.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        cell.burnFirstStage.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+    
+        cell.enginsCountLabel.font = UIFont(name: "LabGrotesque-Bold", size: 16)
         cell.enginsCountLabel.text = "\(Int(rokets.firstStage.engines ?? 0.0))"
+        cell.fuelAmountLabel.font = UIFont(name: "LabGrotesque-Bold", size: 16)
         cell.fuelAmountLabel.text = "\(rokets.firstStage.fuelAmountTons ?? 0.0)"
+        cell.burnLabel.font = UIFont(name: "LabGrotesque-Bold", size: 16)
         cell.burnLabel.text = "\(Int(rokets.firstStage.burnTimeSec ?? 0.0))"
         //SecondStage
+        
+        cell.enginesLabelSecondStage.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        cell.fuelAmountSecondStage.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        cell.burnSecondStage.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        
+        cell.secondEngines.font = UIFont(name: "LabGrotesque-Bold", size: 16)
         cell.secondEngines.text = "\(Int(rokets.secondStage.engines ?? 0.0))"
+        cell.secontFuelAmountLabel.font = UIFont(name: "LabGrotesque-Bold", size: 16)
         cell.secontFuelAmountLabel.text = "\(rokets.secondStage.fuelAmountTons ?? 0.0)"
+        cell.secondBurnLabel.font = UIFont(name: "LabGrotesque-Bold", size: 16)
         cell.secondBurnLabel.text = "\(Int(rokets.secondStage.burnTimeSec ?? 0.0))"
+        
+        cell.heightLabelCount.font = UIFont(name: "LabGrotesque-Bold", size: 16)
+        cell.diameterLabelCount.font = UIFont(name: "LabGrotesque-Bold", size: 16)
+        cell.massLabelCount.font = UIFont(name: "LabGrotesque-Bold", size: 16)
+        cell.payloadWeightLabelCount.font = UIFont(name: "LabGrotesque-Bold", size: 16)
+        
+        cell.heightLabel.font = UIFont(name: "LabGrotesque-Regular", size: 14)
+        cell.diametrLabel.font = UIFont(name: "LabGrotesque-Regular", size: 14)
+        cell.massLabel.font = UIFont(name: "LabGrotesque-Regular", size: 14)
+        cell.payLoadLabel.font = UIFont(name: "LabGrotesque-Regular", size: 14)
         
         if segment1 == 0 {
             cell.heightLabelCount.text = "\(rokets.height.meters)"
@@ -160,6 +224,11 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         myPageControl.currentPage = indexPath.row
+        
+        let rocket = rokets[indexPath.row]
+        id = rocket.id
+        rocketName = rocket.name
+        
     }
 }
 

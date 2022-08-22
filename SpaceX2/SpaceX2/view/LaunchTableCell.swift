@@ -15,6 +15,7 @@ class LaunchTableCell: UITableViewCell {
     
     @IBOutlet weak var launchNameLabel: UILabel!
     @IBOutlet weak var launchDateLabel: UILabel!
+    @IBOutlet weak var launchImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

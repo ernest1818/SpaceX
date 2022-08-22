@@ -16,6 +16,11 @@ class SettingsViewController: UIViewController {
     var segment4 = 0
     var complition: ((Int)-> ())?
     
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var diameterLabel: UILabel!
+    @IBOutlet weak var massLabel: UILabel!
+    @IBOutlet weak var payloadLabel: UILabel!
+    
     
     @IBOutlet weak var heightSegment: UISegmentedControl!
     
@@ -43,6 +48,13 @@ class SettingsViewController: UIViewController {
             payloadSegment.selectedSegmentIndex = segment4 as? Int ?? 0
         }
        
+    }
+    
+    func configurateLabels(){
+        heightLabel.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        diameterLabel.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        massLabel.font = UIFont(name: "LabGrotesque-Regular", size: 16)
+        payloadLabel.font = UIFont(name: "LabGrotesque-Regular", size: 16)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

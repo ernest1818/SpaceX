@@ -39,4 +39,22 @@ class NetworkManeger {
             }
         }.resume()
     }
+    
+    static func fetchData2(url: String, comlition: @escaping(_ rokets: [Launches])->()){
+        guard let url = URL(string: url) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let rokets = try decoder.decode([Launches].self, from: data)
+                comlition(rokets)
+            } catch {
+                print("ddddddddddddd  \(error)")
+            }
+        }.resume()
+    }
+    
 }
