@@ -36,18 +36,27 @@ class MYCollectionCell: UICollectionViewCell {
     
     
     //MARK: - FistFlight
+    @IBOutlet weak var firstFlight: UILabel!
+    @IBOutlet weak var country: UILabel!
+    @IBOutlet weak var costPerLaunch: UILabel!
     @IBOutlet weak var firstFlightLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var costPerLaunchLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
     //MARK: - FistStage
+    @IBOutlet weak var enginesLabelFirstStage: UILabel!
+    @IBOutlet weak var fuelAmountFirstStage: UILabel!
+    @IBOutlet weak var burnFirstStage: UILabel!
     @IBOutlet weak var enginsCountLabel: UILabel!
     @IBOutlet weak var fuelAmountLabel: UILabel!
     @IBOutlet weak var burnLabel: UILabel!
     
     //MARK: - SecondStage
+    @IBOutlet weak var enginesLabelSecondStage: UILabel!
     @IBOutlet weak var secondEngines: UILabel!
+    @IBOutlet weak var burnSecondStage: UILabel!
+    @IBOutlet weak var fuelAmountSecondStage: UILabel!
     @IBOutlet weak var secontFuelAmountLabel: UILabel!
     @IBOutlet weak var secondBurnLabel: UILabel!
 
@@ -56,6 +65,7 @@ class MYCollectionCell: UICollectionViewCell {
     override class func awakeFromNib() {
         super.awakeFromNib()
     
+        
     }
     
     

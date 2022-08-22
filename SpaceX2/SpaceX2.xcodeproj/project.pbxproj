@@ -12,6 +12,9 @@
 		8860094428AE762D000DDB60 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860094328AE762D000DDB60 /* SettingsViewController.swift */; };
 		8860094828AE8694000DDB60 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860094728AE8694000DDB60 /* LaunchViewController.swift */; };
 		8860094A28AE892C000DDB60 /* LaunchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860094928AE892C000DDB60 /* LaunchTableCell.swift */; };
+		88B307BC28B37095006940B2 /* LabGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88B307B928B37095006940B2 /* LabGrotesque-Regular.ttf */; };
+		88B9A94A28B383B2005906A7 /* LabGrotesque-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88B9A94928B383B2005906A7 /* LabGrotesque-Medium.ttf */; };
+		88B9A94C28B383F0005906A7 /* LabGrotesque-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88B9A94B28B383F0005906A7 /* LabGrotesque-Bold.ttf */; };
 		88D6BFCD28AD3A0F0013FDD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D6BFCC28AD3A0F0013FDD3 /* AppDelegate.swift */; };
 		88D6BFCF28AD3A0F0013FDD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D6BFCE28AD3A0F0013FDD3 /* SceneDelegate.swift */; };
 		88D6BFD128AD3A0F0013FDD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D6BFD028AD3A0F0013FDD3 /* ViewController.swift */; };
@@ -28,6 +31,9 @@
 		8860094328AE762D000DDB60 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8860094728AE8694000DDB60 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		8860094928AE892C000DDB60 /* LaunchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTableCell.swift; sourceTree = "<group>"; };
+		88B307B928B37095006940B2 /* LabGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LabGrotesque-Regular.ttf"; sourceTree = "<group>"; };
+		88B9A94928B383B2005906A7 /* LabGrotesque-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LabGrotesque-Medium.ttf"; sourceTree = "<group>"; };
+		88B9A94B28B383F0005906A7 /* LabGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LabGrotesque-Bold.ttf"; sourceTree = "<group>"; };
 		88D6BFC928AD3A0F0013FDD3 /* SpaceX2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D6BFCC28AD3A0F0013FDD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88D6BFCE28AD3A0F0013FDD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,16 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		88B9A94D28B3A70B005906A7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				88B307B928B37095006940B2 /* LabGrotesque-Regular.ttf */,
+				88B9A94928B383B2005906A7 /* LabGrotesque-Medium.ttf */,
+				88B9A94B28B383F0005906A7 /* LabGrotesque-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		88D6BFC028AD3A0E0013FDD3 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +132,7 @@
 				88D6BFD528AD3A110013FDD3 /* Assets.xcassets */,
 				88D6BFD728AD3A110013FDD3 /* LaunchScreen.storyboard */,
 				88D6BFDA28AD3A110013FDD3 /* Info.plist */,
+				88B9A94D28B3A70B005906A7 /* Fonts */,
 			);
 			path = SpaceX2;
 			sourceTree = "<group>";
@@ -178,9 +195,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B9A94A28B383B2005906A7 /* LabGrotesque-Medium.ttf in Resources */,
 				88D6BFD928AD3A110013FDD3 /* LaunchScreen.storyboard in Resources */,
+				88B9A94C28B383F0005906A7 /* LabGrotesque-Bold.ttf in Resources */,
 				88D6BFD628AD3A110013FDD3 /* Assets.xcassets in Resources */,
 				88D6BFD428AD3A0F0013FDD3 /* Main.storyboard in Resources */,
+				88B307BC28B37095006940B2 /* LabGrotesque-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

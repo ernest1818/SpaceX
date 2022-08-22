@@ -52,3 +52,11 @@ struct PayloadWeights: Decodable {
     let kg: Float?
     let lb: Float?
 }
+
+
+struct Launches: Decodable {
+    let rocket: String
+    let name: String
+    let dateLocal: String
+    let success: Bool?
+}
